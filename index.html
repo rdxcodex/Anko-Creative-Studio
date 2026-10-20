@@ -1,0 +1,1695 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f9f4e9">
+  <meta name="description" content="Anko Creative Studio — freelance web development, Pinterest content creation, and creative digital experiences across beauty, fashion, and home decor.">
+  <title>Anko Creative Studio | Creative Content & Digital Experiences</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f9f4e9;
+      --paper: #fffdfa;
+      --ink: #201e20;
+      --muted: #716b68;
+      --line: #e8e0d4;
+      --pink: #efb4c8;
+      --blue: #b8d4ef;
+      --green: #c8d99c;
+      --orange: #f5b184;
+      --shadow: 0 5px 18px #29231c2b, 0 0 5px #29231c14;
+      --display: "Oswald", Impact, sans-serif;
+      --body: "DM Sans", Arial, sans-serif;
+      --script: "Parisienne", cursive;
+      --radius: 3px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: var(--body);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid #557eb0;
+      outline-offset: 4px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .page-title {
+      margin: 12px 12px 15px;
+      text-align: center;
+      font: 700 clamp(27px, 5vw, 46px)/1.12 var(--display);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .shell {
+      width: min(1100px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .panel {
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid #eae4db;
+      margin-bottom: 28px;
+    }
+
+    .section {
+      padding: clamp(25px, 4.5vw, 52px);
+    }
+
+    .section-heading {
+      margin: 0 0 12px;
+      font: 700 clamp(28px, 4vw, 43px)/1.12 var(--display);
+      text-transform: uppercase;
+      letter-spacing: -.5px;
+    }
+
+    .script {
+      font: 400 clamp(28px, 4vw, 43px)/1.2 var(--script);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-intro {
+      max-width: 580px;
+      margin: 0 0 30px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 10px 20px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      transition: background .2s, color .2s, transform .2s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: transparent;
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button-outline:hover {
+      background: var(--ink);
+      color: white;
+    }
+
+    .button-small {
+      min-height: 35px;
+      padding: 7px 12px;
+      font-size: 10px;
+    }
+
+    .text-link {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 3px;
+    }
+
+    /* Header */
+
+    .hero-panel {
+      padding: 22px clamp(20px, 4vw, 46px) 28px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 38px;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2.7vw, 32px);
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      transition: opacity .2s;
+    }
+
+    .nav-links a:hover {
+      opacity: .55;
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 8px;
+      border: 1px solid var(--line);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .hero-copy {
+      text-align: center;
+      padding: 10px 0 0;
+    }
+
+    .hero-script {
+      display: block;
+      margin-bottom: -15px;
+      position: relative;
+      z-index: 1;
+      font-size: clamp(42px, 6.2vw, 76px);
+      transform: rotate(-5deg);
+    }
+
+    .hero-heading {
+      position: relative;
+      margin: 0 0 22px;
+      font: 700 clamp(48px, 8vw, 92px)/.99 var(--display);
+      text-transform: uppercase;
+      letter-spacing: -1.6px;
+    }
+
+    .hero-heading span {
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 420px;
+      margin: 0 auto 22px;
+      font-size: clamp(12px, 1.4vw, 15px);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .social-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .social-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* Decorative hero collage */
+
+    .hero-art {
+      position: relative;
+      min-height: 350px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: 72%;
+      height: 64%;
+      background: #c9deeb;
+      z-index: -2;
+      border-radius: 3px;
+      transform: rotate(-3deg);
+    }
+
+    .hero-photo {
+      width: 73%;
+      height: 290px;
+      border: 7px solid var(--paper);
+      background: #e9d8c6;
+      box-shadow: 0 3px 12px #00000014;
+    }
+
+    .hero-photo img {
+      height: 100%;
+      object-position: center;
+    }
+
+    .folder {
+      position: absolute;
+      width: 74px;
+      height: 53px;
+      border-radius: 8px 8px 5px 5px;
+      box-shadow: 0 4px 10px #00000010;
+      z-index: 2;
+    }
+
+    .folder::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -8px;
+      width: 35px;
+      height: 13px;
+      border-radius: 6px 7px 0 0;
+      background: inherit;
+    }
+
+    .folder small {
+      position: absolute;
+      bottom: -15px;
+      right: 0;
+      font-size: 8px;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .folder-pink { background: var(--pink); top: 9%; left: 7%; }
+    .folder-orange { background: var(--orange); top: 15%; right: 1%; }
+    .folder-blue { background: var(--blue); bottom: 24%; left: -1%; }
+    .folder-green { background: var(--green); bottom: 19%; right: -1%; }
+
+    .hero-art-label {
+      position: absolute;
+      bottom: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: var(--paper);
+      padding: 5px 10px;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+      gap: 38px;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+      padding: 0 18px 18px 0;
+    }
+
+    .about-photo {
+      height: 340px;
+      background: #eee0d2;
+    }
+
+    .about-photo img {
+      height: 100%;
+    }
+
+    .photo-caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: var(--pink);
+      padding: 12px 17px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .about-copy p {
+      color: #514c49;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .skill {
+      padding: 11px 12px;
+      background: #f6f0e7;
+      border-left: 3px solid var(--pink);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .skill:nth-child(3n + 2) { border-color: var(--blue); }
+    .skill:nth-child(3n) { border-color: var(--green); }
+
+    /* Accounts */
+
+    .account-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .account-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      min-width: 0;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .account-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px #00000010;
+    }
+
+    .account-cover {
+      position: relative;
+      height: 205px;
+      overflow: hidden;
+      background: var(--cover);
+    }
+
+    .account-cover img {
+      height: 100%;
+      transition: transform .4s;
+    }
+
+    .account-card:hover .account-cover img {
+      transform: scale(1.04);
+    }
+
+    .account-cover::after {
+      content: "";
+      position: absolute;
+      inset: 50% 0 0;
+      background: linear-gradient(transparent, #17151585);
+      pointer-events: none;
+    }
+
+    .account-cover-label {
+      position: absolute;
+      z-index: 1;
+      left: 14px;
+      bottom: 12px;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .account-info {
+      padding: 18px;
+    }
+
+    .account-info h3 {
+      margin: 0;
+      font: 700 25px/1.2 var(--display);
+      overflow-wrap: anywhere;
+    }
+
+    .account-info p {
+      margin: 5px 0 15px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .account-info .button {
+      width: 100%;
+    }
+
+    /* Analytics */
+
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+      align-items: start;
+    }
+
+    .analytics-card {
+      min-width: 0;
+      padding: 18px 14px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .analytics-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .analytics-top h3 {
+      margin: 0;
+      font: 700 23px/1.1 var(--display);
+      overflow-wrap: anywhere;
+    }
+
+    .analytics-top .eyebrow {
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+
+    .period-toggle {
+      display: inline-flex;
+      padding: 3px;
+      background: #f1ece5;
+      border-radius: 3px;
+      gap: 2px;
+      margin-bottom: 18px;
+      width: 100%;
+    }
+
+    .period-toggle button {
+      flex: 1;
+      min-width: 0;
+      padding: 8px 3px;
+      border: 0;
+      background: transparent;
+      color: #605953;
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    .period-toggle button[aria-pressed="true"] {
+      background: var(--ink);
+      color: white;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .metric {
+      padding: 12px 9px;
+      min-width: 0;
+      background: #f7f3ed;
+      border-bottom: 2px solid var(--metric-color, var(--blue));
+    }
+
+    .metric-label {
+      display: block;
+      font-size: 9px;
+      line-height: 1.45;
+      color: #655f59;
+      min-height: 27px;
+    }
+
+    .metric-value {
+      display: block;
+      margin-top: 4px;
+      font: 600 clamp(20px, 2.3vw, 29px)/1.2 var(--display);
+      overflow-wrap: anywhere;
+    }
+
+    .metric:nth-child(2) { --metric-color: var(--pink); }
+    .metric:nth-child(3) { --metric-color: var(--green); }
+    .metric:nth-child(4) { --metric-color: var(--orange); }
+
+    .period-caption {
+      margin: 13px 0 0;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .dashboard-note {
+      padding: 14px 16px;
+      background: #f3eee5;
+      margin-top: 18px;
+      font-size: 11px;
+      color: #615a53;
+    }
+
+    /* Work */
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .work-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .work-cover {
+      height: 255px;
+      position: relative;
+      overflow: hidden;
+      background: #eee3d6;
+    }
+
+    .work-cover img {
+      height: 100%;
+      transition: transform .35s;
+    }
+
+    .work-card:hover .work-cover img {
+      transform: scale(1.05);
+    }
+
+    .work-number {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      padding: 5px 9px;
+      background: var(--paper);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .work-info {
+      padding: 17px;
+    }
+
+    .work-info h3 {
+      margin: 0 0 5px;
+      font: 700 26px/1.2 var(--display);
+      text-transform: uppercase;
+    }
+
+    .work-info p {
+      min-height: 40px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Services */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .service-card {
+      padding: 24px 18px;
+      background: #f7f2e9;
+      border-top: 3px solid var(--pink);
+    }
+
+    .service-card:nth-child(2) { border-color: var(--blue); }
+    .service-card:nth-child(3) { border-color: var(--green); }
+
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      background: white;
+      border: 1px solid var(--line);
+      font-size: 19px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 9px;
+      font: 600 25px/1.2 var(--display);
+      text-transform: uppercase;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Contact */
+
+    .contact-panel {
+      background: #e9dfd1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .contact-heading {
+      margin: 0;
+      font: 700 clamp(36px, 5.4vw, 65px)/1.05 var(--display);
+      text-transform: uppercase;
+    }
+
+    .contact-script {
+      display: block;
+      font: 400 45px/1.2 var(--script);
+      transform: rotate(-3deg);
+      margin-bottom: 4px;
+    }
+
+    .contact-copy {
+      color: #5d554e;
+      max-width: 450px;
+    }
+
+    .social-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .social-list a {
+      padding: 13px;
+      background: #fffdfa;
+      border: 1px solid #ded4c6;
+      font-size: 11px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+      transition: background .2s;
+    }
+
+    .social-list a:hover {
+      background: var(--pink);
+    }
+
+    .social-list small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .footer {
+      padding: 8px 10px 26px;
+      text-align: center;
+      font-size: 10px;
+      color: #746b62;
+    }
+
+    .footer strong {
+      color: var(--ink);
+    }
+
+    /* Reveal only when JavaScript is enabled */
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    .js .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 1250px) {
+      .shell {
+        width: min(1100px, calc(100% - 70px));
+      }
+    }
+
+    @media (max-width: 800px) {
+      .shell {
+        width: calc(100% - 28px);
+      }
+
+      .hero-panel {
+        padding-inline: 24px;
+      }
+
+      .nav {
+        padding-bottom: 25px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr .85fr;
+        gap: 14px;
+      }
+
+      .hero-art {
+        min-height: 300px;
+      }
+
+      .hero-photo {
+        height: 245px;
+      }
+
+      .folder {
+        width: 54px;
+        height: 40px;
+      }
+
+      .account-grid, .work-grid {
+        gap: 10px;
+      }
+
+      .account-cover {
+        height: 155px;
+      }
+
+      .account-info {
+        padding: 12px;
+      }
+
+      .account-info h3 {
+        font-size: 21px;
+      }
+
+      .analytics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid {
+        gap: 22px;
+      }
+
+      .about-photo {
+        height: 290px;
+      }
+
+      .work-cover {
+        height: 200px;
+      }
+
+      .section {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-title {
+        font-size: 27px;
+        letter-spacing: .5px;
+        margin-top: 18px;
+      }
+
+      .shell {
+        width: calc(100% - 24px);
+      }
+
+      .panel {
+        margin-bottom: 17px;
+      }
+
+      .hero-panel {
+        padding: 17px 18px 25px;
+      }
+
+      .nav {
+        position: relative;
+        padding-bottom: 24px;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        z-index: 5;
+        top: calc(100% - 14px);
+        left: 0;
+        right: 0;
+        padding: 14px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 7px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links a:last-child {
+        border-bottom: 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-top: 12px;
+      }
+
+      .hero-heading {
+        font-size: clamp(58px, 16vw, 83px);
+      }
+
+      .hero-description {
+        max-width: 390px;
+      }
+
+      .hero-art {
+        min-height: 280px;
+        max-width: 360px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .hero-photo {
+        height: 235px;
+        width: 68%;
+      }
+
+      .hero-art-label {
+        bottom: 0;
+      }
+
+      .social-row {
+        gap: 15px;
+      }
+
+      .section {
+        padding: 23px 18px;
+      }
+
+      .section-heading {
+        font-size: 33px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 23px;
+      }
+
+      .about-photo {
+        height: 300px;
+      }
+
+      .account-grid, .work-grid, .service-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .account-cover {
+        height: 235px;
+      }
+
+      .account-info {
+        padding: 17px;
+      }
+
+      .account-info h3 {
+        font-size: 27px;
+      }
+
+      .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .analytics-card {
+        padding: 18px;
+      }
+
+      .analytics-top h3 {
+        font-size: 27px;
+      }
+
+      .metric-value {
+        font-size: 27px;
+      }
+
+      .work-cover {
+        height: 270px;
+      }
+
+      .work-info p {
+        min-height: 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .contact-heading {
+        font-size: 47px;
+      }
+
+      .social-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+</head>
+
+<body>
+  <h1 class="page-title">Anko Creative Studio</h1>
+
+  <main class="shell">
+
+    <!-- HERO -->
+    <section class="panel hero-panel" id="home">
+      <header class="nav">
+        <a class="brand" href="#home" aria-label="Anko Creative Studio home">
+          ANKO CREATIVE STUDIO
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-expanded="false" aria-controls="navLinks">
+          <span aria-hidden="true">☰</span> MENU
+        </button>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#accounts">Pinterest</a>
+          <a href="#analytics">Analytics</a>
+          <a href="#work">My Work</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="script hero-script">Create. Design. Inspire.</span>
+          <h2 class="hero-heading">
+            <span>Creative</span>
+            <span>Content.</span>
+            <span>Digital</span>
+            <span>Experiences.</span>
+          </h2>
+
+          <p class="hero-description">
+            Creative Content. Digital Experiences. Measurable Growth.
+            I'm a freelance web developer and Pinterest content creator
+            specializing in beauty, fashion, and home decor. I combine
+            visual storytelling, content strategy, and web development
+            to create engaging digital experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#work">Explore My Work ↗</a>
+            <a class="button button-outline" href="#contact">Let's Collaborate</a>
+          </div>
+
+          <div class="social-row" aria-label="Social profiles">
+            <a href="https://www.instagram.com/anko.creative.studio/"
+               target="_blank" rel="noopener noreferrer">◎ Instagram</a>
+            <a href="https://www.threads.net/@anko.creative.studio"
+               target="_blank" rel="noopener noreferrer">@ Threads</a>
+            <a href="https://x.com/Ankocreatstudio"
+               target="_blank" rel="noopener noreferrer">𝕏 X</a>
+            <a href="https://pin.it/7tt9NtAGw"
+               target="_blank" rel="noopener noreferrer">↗ Pinterest</a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Decorative portfolio collage">
+          <div class="folder folder-pink"><small>beauty_01</small></div>
+          <div class="folder folder-orange"><small>fashion_02</small></div>
+          <div class="folder folder-blue"><small>web_design_03</small></div>
+          <div class="folder folder-green"><small>interiors_04</small></div>
+
+          <div class="hero-photo">
+            <img
+              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=85"
+              alt="Fashion editorial used as replaceable sample imagery"
+              fetchpriority="high">
+          </div>
+
+          <span class="hero-art-label">Anko Creative Studio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="panel section reveal" id="about">
+      <div class="about-grid">
+        <div class="about-photo-wrap">
+          <div class="about-photo">
+            <img
+              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=850&q=85"
+              alt="Fashion inspiration photograph used as a temporary visual"
+              loading="lazy">
+          </div>
+          <div class="photo-caption">A little creativity, a lot of strategy.</div>
+        </div>
+
+        <div class="about-copy">
+          <span class="script">Hello, welcome!</span>
+          <h2 class="section-heading">Creativity Meets Digital Strategy</h2>
+
+          <p>
+            Anko Creative Studio focuses on creating and sharing visual
+            content across three niches: beauty, fashion, and home decor.
+          </p>
+
+          <p>
+            Alongside content creation, I work as a freelance web developer,
+            bringing together creative design and technical skills to build
+            digital experiences.
+          </p>
+
+          <div class="skill-grid">
+            <div class="skill">Web Development</div>
+            <div class="skill">Pinterest Content Creation</div>
+            <div class="skill">Beauty Content</div>
+            <div class="skill">Fashion Content</div>
+            <div class="skill">Home Decor Content</div>
+            <div class="skill">Visual Content Strategy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PINTEREST ACCOUNTS -->
+    <section class="panel section reveal" id="accounts">
+      <span class="eyebrow">Find me on Pinterest</span>
+      <h2 class="section-heading">My Creative Corners</h2>
+      <p class="section-intro">
+        Three niche-specific accounts, each with its own visual direction
+        and inspiration. Explore the boards and discover more.
+      </p>
+
+      <div class="account-grid" id="accountGrid"></div>
+    </section>
+
+    <!-- ANALYTICS -->
+    <section class="panel section reveal" id="analytics">
+      <span class="eyebrow">Numbers behind the creativity</span>
+      <h2 class="section-heading">Pinterest Performance</h2>
+      <p class="section-intro">
+        A snapshot of the performance of each Pinterest account.
+        Switch between monthly and all-time figures to compare the
+        supplied metrics.
+      </p>
+
+      <div class="analytics-grid" id="analyticsGrid"></div>
+
+      <div class="dashboard-note">
+        <strong>Data note:</strong> Figures are displayed exactly as
+        supplied. K denotes thousands; engagements and audience figures
+        are separate metrics. An em dash (—) means a value was not
+        provided. These are counts, not percentages.
+      </div>
+    </section>
+
+    <!-- MY WORK -->
+    <section class="panel section reveal" id="work">
+      <span class="eyebrow">A collection of creative directions</span>
+      <h2 class="section-heading">My Work Includes</h2>
+      <p class="section-intro">
+        Explore my three content categories. The photographs below are
+        temporary editorial imagery, not claims of original client work
+        or verified project outcomes.
+      </p>
+
+      <div class="work-grid" id="workGrid"></div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="panel section reveal" id="services">
+      <span class="eyebrow">How we can work together</span>
+      <h2 class="section-heading">Creative Services</h2>
+      <p class="section-intro">
+        Thoughtful design, strategic content, and digital experiences
+        made to bring ideas to life.
+      </p>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">⌘</div>
+          <h3>Web Development</h3>
+          <p>
+            Building and designing websites for brands, creators,
+            and businesses.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">✳</div>
+          <h3>Pinterest Content Creation</h3>
+          <p>
+            Creating and publishing visual content across beauty,
+            fashion, and home decor niches.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">✎</div>
+          <h3>Creative Digital Experiences</h3>
+          <p>
+            Combining visual presentation and technical skills
+            to create engaging online experiences.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="panel section contact-panel reveal" id="contact">
+      <div class="contact-grid">
+        <div>
+          <span class="contact-script">Have a creative idea?</span>
+          <h2 class="contact-heading">Let's Make<br>It Happen.</h2>
+          <p class="contact-copy">
+            Have a project, a collaboration idea, or a creative brief?
+            Connect with Anko Creative Studio through the social platform
+            that works best for you.
+          </p>
+          <a class="button" href="https://www.instagram.com/anko.creative.studio/"
+             target="_blank" rel="noopener noreferrer">
+            Let's Collaborate ↗
+          </a>
+        </div>
+
+        <div class="social-list" id="socialList" aria-label="Contact and social links"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>ANKO CREATIVE STUDIO</strong>
+      <p>Creative content. Digital experiences. Made with intention.</p>
+      <span>© <span id="year"></span> Anko Creative Studio</span>
+    </footer>
+  </main>
+
+  <script>
+    "use strict";
+
+    /*
+     * EDIT YOUR WEBSITE HERE
+     *
+     * Update the account details, metrics, imagery, and Facebook URL
+     * in these data objects. The account cards, analytics, work grid,
+     * and social list are generated from these reusable data structures.
+     */
+
+    const pinterestAccounts = [
+      {
+        id: "veloc4re",
+        name: "VELOC4RE",
+        niche: "Beauty",
+        color: "#edb6c8",
+        url: "https://pin.it/7tt9NtAGw",
+        image:
+          "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=750&q=85",
+        alt: "Beauty products and makeup, temporary sample imagery",
+        description: "Beauty inspiration, makeup ideas, and visual discovery.",
+        metrics: {
+          monthly: {
+            impressions: "36.27K",
+            engagements: "340",
+            audience: "7.36K",
+            engagedAudience: "145"
+          },
+          allTime: {
+            impressions: "53.6K",
+            engagements: "947",
+            audience: "9.38K",
+            engagedAudience: "188"
+          }
+        }
+      },
+      {
+        id: "modavenfinda",
+        name: "MODAVENFINDA",
+        niche: "Fashion",
+        color: "#b8d4ef",
+        url: "https://pin.it/4hQoUfbgS",
+        image:
+          "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=750&q=85",
+        alt: "Fashion styling inspiration, temporary sample imagery",
+        description: "Outfit inspiration, fashion ideas, and personal style.",
+        metrics: {
+          monthly: {
+            impressions: "35.66K",
+            engagements: "712",
+            audience: "14.49K",
+            engagedAudience: "464"
+          },
+          allTime: {
+            impressions: "51.88K",
+            engagements: "1.06K",
+            audience: "17.38K",
+            engagedAudience: "521"
+          }
+        }
+      },
+      {
+        id: "decorshub",
+        name: "DECORSHUB",
+        niche: "Home Decor",
+        color: "#c8d99c",
+        url: "https://pin.it/1eag2jzy8",
+        image:
+          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=750&q=85",
+        alt: "Home interior inspiration, temporary sample imagery",
+        description: "Interior inspiration, home styling, and decor ideas.",
+        metrics: {
+          monthly: {
+            impressions: "20.68K",
+            engagements: "214",
+            audience: "3.59K",
+            engagedAudience: "85"
+          },
+          allTime: {
+            impressions: "33.86K",
+            engagements: "572",
+            audience: "4.73K",
+            engagedAudience: "110"
+          }
+        }
+      }
+    ];
+
+    const metricDefinitions = [
+      { key: "impressions", label: "Impressions" },
+      { key: "engagements", label: "Engagements" },
+      { key: "audience", label: "Total Audience" },
+      { key: "engagedAudience", label: "Engaged Audience" }
+    ];
+
+    const portfolioCategories = [
+      {
+        number: "01",
+        title: "Beauty",
+        accountId: "veloc4re",
+        description:
+          "Beauty inspiration, product aesthetics, and content discovery.",
+        image:
+          "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=85",
+        alt: "Beauty editorial sample photograph"
+      },
+      {
+        number: "02",
+        title: "Fashion",
+        accountId: "modavenfinda",
+        description:
+          "Fashion inspiration, styling ideas, and outfit-focused visuals.",
+        image:
+          "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85",
+        alt: "Fashion editorial sample photograph"
+      },
+      {
+        number: "03",
+        title: "Home Decor",
+        accountId: "decorshub",
+        description:
+          "Interior inspiration, room styling, and decor-focused visuals.",
+        image:
+          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85",
+        alt: "Home decor editorial sample photograph"
+      }
+    ];
+
+    const socialLinks = [
+      {
+        label: "Instagram",
+        handle: "@anko.creative.studio",
+        url: "https://www.instagram.com/anko.creative.studio/"
+      },
+      {
+        label: "Instagram · Personal",
+        handle: "@zu7vu",
+        url: "https://www.instagram.com/zu7vu/"
+      },
+      {
+        label: "Threads",
+        handle: "@anko.creative.studio",
+        url: "https://www.threads.net/@anko.creative.studio"
+      },
+      {
+        label: "X",
+        handle: "@Ankocreatstudio",
+        url: "https://x.com/Ankocreatstudio"
+      },
+      {
+        label: "Facebook",
+        handle: "Anko Creative Studio",
+        // Replace this placeholder with your real Facebook page URL.
+        url: "#facebook-url-not-configured",
+        placeholder: true
+      },
+      ...pinterestAccounts.map(account => ({
+        label: `Pinterest · ${account.niche}`,
+        handle: account.name,
+        url: account.url
+      }))
+    ];
+
+    const escapeHTML = value =>
+      String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+
+    function externalLink(url) {
+      return `target="_blank" rel="noopener noreferrer" href="${escapeHTML(url)}"`;
+    }
+
+    function renderAccounts() {
+      const grid = document.getElementById("accountGrid");
+
+      grid.innerHTML = pinterestAccounts.map(account => `
+        <article class="account-card">
+          <a ${externalLink(account.url)}
+             aria-label="Visit ${escapeHTML(account.name)} on Pinterest">
+            <div class="account-cover"
+                 style="--cover:${escapeHTML(account.color)}">
+              <img src="${escapeHTML(account.image)}"
+                   alt="${escapeHTML(account.alt)}"
+                   loading="lazy">
+              <span class="account-cover-label">
+                ${escapeHTML(account.niche)} inspiration
+              </span>
+            </div>
+          </a>
+          <div class="account-info">
+            <span class="eyebrow">${escapeHTML(account.niche)}</span>
+            <h3>${escapeHTML(account.name)}</h3>
+            <p>${escapeHTML(account.description)}</p>
+            <a class="button button-small"
+               ${externalLink(account.url)}>
+              View Pinterest ↗
+            </a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function formatMetric(value) {
+      return value === null || value === undefined || value === ""
+        ? "—"
+        : escapeHTML(value);
+    }
+
+    function renderAnalytics() {
+      const grid = document.getElementById("analyticsGrid");
+
+      grid.innerHTML = pinterestAccounts.map(account => `
+        <article class="analytics-card" data-account="${escapeHTML(account.id)}">
+          <div class="analytics-top">
+            <div>
+              <span class="eyebrow">${escapeHTML(account.niche)}</span>
+              <h3>${escapeHTML(account.name)}</h3>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </div>
+
+          <div class="period-toggle"
+               role="group"
+               aria-label="${escapeHTML(account.name)} reporting period">
+            <button type="button"
+                    data-period="monthly"
+                    aria-pressed="true">Monthly</button>
+            <button type="button"
+                    data-period="allTime"
+                    aria-pressed="false">All-Time</button>
+          </div>
+
+          <div class="metrics" aria-live="polite">
+            ${metricDefinitions.map(metric => `
+              <div class="metric">
+                <span class="metric-label">${escapeHTML(metric.label)}</span>
+                <strong class="metric-value"
+                        data-metric="${escapeHTML(metric.key)}">${
+                          formatMetric(account.metrics.monthly[metric.key])
+                        }</strong>
+              </div>
+            `).join("")}
+          </div>
+
+          <p class="period-caption" data-caption>
+            Reporting period: Monthly
+          </p>
+        </article>
+      `).join("");
+
+      grid.querySelectorAll(".analytics-card").forEach(card => {
+        const account = pinterestAccounts.find(
+          item => item.id === card.dataset.account
+        );
+
+        card.querySelectorAll("[data-period]").forEach(button => {
+          button.addEventListener("click", () => {
+            const period = button.dataset.period;
+            const data = account.metrics[period];
+
+            card.querySelectorAll("[data-period]").forEach(toggle => {
+              toggle.setAttribute(
+                "aria-pressed",
+                String(toggle === button)
+              );
+            });
+
+            card.querySelectorAll("[data-metric]").forEach(element => {
+              const key = element.dataset.metric;
+              element.textContent = formatMetric(data[key]);
+            });
+
+            card.querySelector("[data-caption]").textContent =
+              `Reporting period: ${period === "monthly" ? "Monthly" : "All-Time"}`;
+          });
+        });
+      });
+    }
+
+    function renderWork() {
+      const grid = document.getElementById("workGrid");
+
+      grid.innerHTML = portfolioCategories.map(category => {
+        const account = pinterestAccounts.find(
+          item => item.id === category.accountId
+        );
+
+        return `
+          <article class="work-card">
+            <a ${externalLink(account.url)}
+               aria-label="Explore ${escapeHTML(category.title)} on Pinterest">
+              <div class="work-cover">
+                <img src="${escapeHTML(category.image)}"
+                     alt="${escapeHTML(category.alt)}"
+                     loading="lazy">
+                <span class="work-number">${escapeHTML(category.number)}</span>
+              </div>
+            </a>
+            <div class="work-info">
+              <span class="eyebrow">Pinterest collection</span>
+              <h3>${escapeHTML(category.title)}</h3>
+              <p>${escapeHTML(category.description)}</p>
+              <a class="text-link" ${externalLink(account.url)}>
+                Explore ${escapeHTML(account.name)} ↗
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderSocialLinks() {
+      const list = document.getElementById("socialList");
+
+      list.innerHTML = socialLinks.map(social => {
+        const isPlaceholder = Boolean(social.placeholder);
+
+        return `
+          <a href="${escapeHTML(social.url)}"
+             ${isPlaceholder ? 'data-facebook-placeholder="true"' : 'target="_blank" rel="noopener noreferrer"'}
+             ${isPlaceholder ? 'aria-label="Facebook page URL not yet configured"' : ""}>
+            ${escapeHTML(social.label)}
+            <small>${escapeHTML(social.handle)}${
+              isPlaceholder ? " · Add page URL" : " ↗"
+            }</small>
+          </a>
+        `;
+      }).join("");
+
+      list.querySelectorAll("[data-facebook-placeholder]").forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          alert("To activate Facebook, edit the Facebook URL in the socialLinks array in index.html.");
+        });
+      });
+    }
+
+    function setupMobileNavigation() {
+      const toggle = document.getElementById("menuToggle");
+      const nav = document.getElementById("navLinks");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.querySelector("span").textContent = isOpen ? "✕" : "☰";
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.querySelector("span").textContent = "☰";
+        });
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          nav.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.querySelector("span").textContent = "☰";
+          toggle.focus();
+        }
+      });
+    }
+
+    function setupScrollReveal() {
+      const elements = document.querySelectorAll(".reveal");
+
+      if (!("IntersectionObserver" in window)) {
+        elements.forEach(element => element.classList.add("visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, instance) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            instance.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08
+      });
+
+      elements.forEach(element => observer.observe(element));
+    }
+
+    function init() {
+      renderAccounts();
+      renderAnalytics();
+      renderWork();
+      renderSocialLinks();
+      setupMobileNavigation();
+      setupScrollReveal();
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    }
+
+    init();
+  </script>
+</body>
+</html>
